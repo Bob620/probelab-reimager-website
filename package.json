@@ -1,0 +1,16 @@
+{
+  "name": "minirl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bob620",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.140.0",
+    "expressjs": "^1.0.1",
+    "kagi": "github:toka-io/kagi"
+  }
+}
