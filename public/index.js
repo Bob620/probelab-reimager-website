@@ -22466,7 +22466,7 @@ if (process.env.NODE_ENV === 'production') {
 
 }).call(this,require('_process'))
 },{"./cjs/react.development.js":56,"./cjs/react.production.min.js":57,"_process":47}],59:[function(require,module,exports){
-var css = "@import url(\"https://fonts.googleapis.com/css?family=Rubik\");\nbody {\n  margin: 0px;\n  padding: 0px;\n  background-color: #222;\n  color: white;\n  font-family: 'Rubik', sans-serif;\n}\n#title > h1,\n#title > p {\n  margin: 0px;\n  padding: 0px;\n  cursor: default;\n}\n#title {\n  height: 33vh;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#title > h1 {\n  font-size: 4em;\n  padding-top: 1em;\n  padding-bottom: 10px;\n}\n#body input,\n#body button,\n#body p {\n  margin: 0px;\n  padding: 0px;\n  border-width: 0;\n}\n#body {\n  height: 33vh;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#body > div {\n  text-align: center;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n#body p {\n  padding-top: 20px;\n  font-size: 1em;\n}\n#body input {\n  padding: 0.5em;\n  font-size: 1.5em;\n  border-top-left-radius: 0.3em;\n  border-bottom-left-radius: 0.3em;\n  width: 33vw;\n}\n#body button {\n  padding: 0.5em;\n  font-size: 1.5em;\n  border-top-right-radius: 0.3em;\n  border-bottom-right-radius: 0.3em;\n  background-color: #346788;\n  color: black;\n  cursor: pointer;\n}\n#body button:hover {\n  background-color: #29526c;\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\index\\index.css" }, { "insertAt": "bottom" })); module.exports = css;
+var css = "@import url(\"https://fonts.googleapis.com/css?family=Rubik\");\nbody {\n  margin: 0px;\n  padding: 0px;\n  background-color: #222;\n  color: white;\n  font-family: 'Rubik', sans-serif;\n  overflow: hidden;\n}\n#title > h1,\n#title > p {\n  margin: 0px;\n  padding: 0px;\n  cursor: default;\n}\n#title {\n  height: 33vh;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#title > h1 {\n  font-size: 4em;\n  padding-top: 1em;\n  padding-bottom: 10px;\n}\n#body input,\n#body button,\n#body p {\n  margin: 0px;\n  padding: 0px;\n  border-width: 0;\n}\n#body {\n  height: 33vh;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#body > div {\n  text-align: center;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n#body p {\n  padding-top: 20px;\n  padding-bottom: 20px;\n  font-size: 1em;\n}\n#body input {\n  padding: 0.5em;\n  font-size: 1.5em;\n  border-top-left-radius: 0.3em;\n  border-bottom-left-radius: 0.3em;\n  width: 33vw;\n}\n#body textarea {\n  position: fixed;\n  right: -500px;\n}\n#body button {\n  padding: 0.5em;\n  font-size: 1.5em;\n  border-radius: 0.3em;\n  background-color: #346788;\n  color: black;\n  cursor: pointer;\n}\n#body button:hover {\n  background-color: #29526c;\n}\n#body > div button {\n  border-top-left-radius: 0em;\n  border-bottom-left-radius: 0em;\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\index\\index.css" }, { "insertAt": "bottom" })); module.exports = css;
 },{"browserify-css":26}],60:[function(require,module,exports){
 'use strict';
 
@@ -22532,6 +22532,7 @@ var MiniRL = function (_Component) {
 		};
 
 		_this.getMinirl = _this.getMinirl.bind(_this);
+		_this.copyMinirl = _this.copyMinirl.bind(_this);
 		_this.changeUrl = _this.changeUrl.bind(_this);
 		return _this;
 	}
@@ -22558,10 +22559,16 @@ var MiniRL = function (_Component) {
 			});
 		}
 	}, {
+		key: 'copyMinirl',
+		value: function copyMinirl() {
+			document.getElementById('output').select();
+			document.execCommand('copy');
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			document.title = "MiniRL";
-			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement('section', { id: 'title' }, _react2.default.createElement('h1', null, 'MiniRL'), _react2.default.createElement('p', null, 'Baka-length URLs')), _react2.default.createElement('section', { id: 'body' }, _react2.default.createElement('div', null, _react2.default.createElement('input', { type: 'text', onSubmit: this.getMinirl, onChange: this.changeUrl, placeholder: 'Paste a link...', value: this.state.url, autoFocus: true }), _react2.default.createElement('button', { type: 'submit', onClick: this.getMinirl }, 'Bakaify')), _react2.default.createElement('p', null, this.state.output)));
+			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement('section', { id: 'title' }, _react2.default.createElement('h1', null, 'MiniRL'), _react2.default.createElement('p', null, 'Baka-length URLs')), _react2.default.createElement('section', { id: 'body' }, _react2.default.createElement('div', null, _react2.default.createElement('input', { type: 'text', onSubmit: this.getMinirl, onChange: this.changeUrl, placeholder: 'Paste a link...', value: this.state.url, autoFocus: true }), _react2.default.createElement('button', { type: 'submit', onClick: this.getMinirl }, 'Bakaify')), _react2.default.createElement('p', null, this.state.output), _react2.default.createElement('textarea', { id: 'output', value: this.state.output }), this.state.output !== '' && _react2.default.createElement('button', { type: 'submit', onClick: this.copyMinirl }, 'Copy URL')));
 		}
 	}]);
 

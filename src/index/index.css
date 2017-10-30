@@ -6,6 +6,7 @@ body {
   background-color: #222;
   color: white;
   font-family: 'Rubik', sans-serif;
+  overflow: hidden;
 }
 
 #title > h1, #title > p {
@@ -46,6 +47,7 @@ body {
 }
 #body p {
   padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 1em;
 }
 #body input {
@@ -55,15 +57,22 @@ body {
   border-bottom-left-radius: 0.3em;  
   width: 33vw;
 }
+#body textarea {
+  position: fixed;
+  right: -500px;
+}
 #body button {
   padding: 0.5em;
   font-size: 1.5em;
-  border-top-right-radius: 0.3em;
-  border-bottom-right-radius: 0.3em;  
+  border-radius: 0.3em;
   background-color: #346788;
   color: black;
   cursor: pointer;
 }
 #body button:hover {
   background-color: #29526c;
+}
+#body > div button {
+  border-top-left-radius: 0em;
+  border-bottom-left-radius: 0em;  
 }

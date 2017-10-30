@@ -13,6 +13,7 @@ class MiniRL extends Component {
 		 }
 		 
 		 this.getMinirl = this.getMinirl.bind(this);
+		 this.copyMinirl = this.copyMinirl.bind(this);
 		 this.changeUrl = this.changeUrl.bind(this);
 	}
 
@@ -34,6 +35,11 @@ class MiniRL extends Component {
 		});
 	}
 
+	copyMinirl() {
+		document.getElementById('output').select();
+		document.execCommand('copy');
+	}
+
 	render() {
 		document.title = "MiniRL";
 		return (
@@ -48,6 +54,8 @@ class MiniRL extends Component {
 						<button type="submit" onClick={this.getMinirl}>Bakaify</button>
 					</div>
 					<p>{this.state.output}</p>
+					<textarea id="output" value={this.state.output}></textarea>
+					{this.state.output !== '' && (<button type="submit" onClick={this.copyMinirl}>Copy URL</button>)}
 				</section>
 			</div>
 		);
