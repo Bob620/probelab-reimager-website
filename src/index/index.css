@@ -52,6 +52,15 @@ body {
 #body textarea {
   position: fixed;
   right: -5000px;
+  font-size: 1px;
+  border: none;
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  color: #222;
+  padding: 0px;
+  outline: none;
+  box-shadow: none;
 }
 #body button {
   padding: 0.5em;
