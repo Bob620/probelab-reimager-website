@@ -55,7 +55,7 @@ app.post('/api/minirl', async (req, res, next) => {
   let url = req.body.url;
   if (url !== undefined && url.length > 4) {
     if (url.endsWith('/')) {
-      url = url.substr(0, -1);
+      url = url.substr(0, url.length - 1);
     }
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
       url = 'http://'+url;
