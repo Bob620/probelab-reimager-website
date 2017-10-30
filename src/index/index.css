@@ -51,7 +51,7 @@ body {
 }
 #body textarea {
   position: fixed;
-  right: -500px;
+  right: -5000px;
 }
 #body button {
   padding: 0.5em;
