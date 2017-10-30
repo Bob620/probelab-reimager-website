@@ -42,20 +42,13 @@ body {
 #body > div {
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
 #body p {
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 1em;
-}
-#body input {
-  padding: 0.5em;
-  font-size: 1.5em;
-  border-top-left-radius: 0.3em;
-  border-bottom-left-radius: 0.3em;  
-  width: 33vw;
 }
 #body textarea {
   position: fixed;
@@ -68,11 +61,35 @@ body {
   background-color: #346788;
   color: black;
   cursor: pointer;
+  min-width: 20vw;
 }
 #body button:hover {
   background-color: #29526c;
 }
-#body > div button {
-  border-top-left-radius: 0em;
-  border-bottom-left-radius: 0em;  
+
+#body input {
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-radius: 0.3em;
+  margin-bottom: 20px;
+  width: 90vw;
+}
+
+@media screen and (min-width: 750px) {
+  #body > div {
+    flex-direction: row;
+  }
+  #body input {
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0em;
+    width: 33vw;
+    margin-bottom: 0px;
+  }
+  #body button {
+    min-width: 0px;
+  }
+  #body > div button {
+    border-top-left-radius: 0em;
+    border-bottom-left-radius: 0em;
+  }
 }
