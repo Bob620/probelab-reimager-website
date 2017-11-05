@@ -1,14 +1,22 @@
 const DynamoDB = require(`${__dirname}/dynamodb.js`);
 
 class RemoteSet {
-  constructor({defaultValue, serial, tableName, key}) {
+  constructor({defaultValue, serial, tableName, key, maxLocalSize=100}) {
     this.defaultValue = defaultValue;
     this.tableName = tableName;
+    this.maxLocalSize = maxLocalSize;
     this.serial = serial;
     this.key = key;
 
     this.items = new Map();
     this.database = new DynamoDB({});
+  }
+
+  addItem(key, value) {
+    if (this.items.size >= this.maxLocalSize) {
+      this.items.delete(this.items.keys().next().value);
+    }
+    this.items.set(key, value);
   }
 
   async get(key) {
@@ -18,7 +26,7 @@ class RemoteSet {
     }
     item = await this.getItem(key);
     if (item !== undefined && item[this.key] === key) {
-      this.items.set(key, item);
+      this.addItem(key, item);
       return item;
     }
     return this.defaultValue;
@@ -27,7 +35,7 @@ class RemoteSet {
   async forceGet(key) {
     item = await this.getItem(key);
     if (item !== undefined) {
-      this.items.set(key, item);
+      this.addItem(key, item);
       return item;
     }
     return this.defaultValue;
@@ -56,7 +64,7 @@ class RemoteSet {
       });
       if (data.Items[0] !== undefined) {
         found = this.deserialize(data.Items[0]);
-        this.items.set(found.minirl, found);
+        this.addItem(found.minirl, found);
       }
     }
 
@@ -67,7 +75,7 @@ class RemoteSet {
   }
 
   put(key, item) {
-    this.items.set(key, item);
+    this.addItem(key, item);
     this.database.putItem({
       Item: this.serialize(item),
       TableName: this.tableName
