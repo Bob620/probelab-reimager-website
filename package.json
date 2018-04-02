@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "node www",
     "babel-node": "babel-node --presets=es2015,react ./bin/www",
     "build": "node build.js",
     "browserify": "browserify ./src/index/index.jsx -o ./public/index.js | browserify ./src/burningdale/index.jsx -o ./public/burningdale.js"

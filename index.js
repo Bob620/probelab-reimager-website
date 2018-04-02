@@ -18,7 +18,7 @@ const minirlCharacters = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJK
 
 async function createMinirl() {
   const minirl = Random.string(minirlCharacters)(randomEngine, minirlLength);
-  const item = await urls.get(minirl)
+  const item = await urls.get(minirl);
   if (item.minirl === minirl && minirl !== 'assets') {
     return createMinirl();
   }
@@ -79,4 +79,4 @@ app.post('/api/minirl', async (req, res, next) => {
   }
 });
 
-app.listen(8081);
+module.exports = app;
