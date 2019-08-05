@@ -1,0 +1,5 @@
+{
+  "redis": {
+    "branches": "reimager:branches"
+  }
+}

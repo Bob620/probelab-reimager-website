@@ -1,14 +1,14 @@
 {
-  "name": "minirl",
+  "name": "thermo-reimager-website",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node www",
-    "babel-node": "babel-node --presets=es2015,react ./bin/www",
+    "start": "node bin/www",
+    "babel-node": "babel-node --presets=env ./bin/www",
     "build": "node build.js",
-    "browserify": "browserify ./src/index/index.jsx -o ./public/index.js | browserify ./src/burningdale/index.jsx -o ./public/burningdale.js"
+    "build-prod": "node build.js production"
   },
   "browserify": {
     "transform": [
@@ -16,8 +16,7 @@
         "babelify",
         {
           "presets": [
-            "es2015",
-            "react"
+            "env"
           ]
         }
       ],
@@ -29,21 +28,28 @@
   "author": "Bob620",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.140.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "kagi": "github:toka-io/kagi",
-    "random-js": "^1.0.8"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "ioredis": "^4.14.0",
+    "pug": "^2.0.4",
+    "random-js": "^1.0.8",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
-    "axios": "^0.17.0",
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "babelify": "^7.3.0",
-    "browserify": "^14.0.0",
-    "browserify-css": "^0.10.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
+    "bakadux": "^1.1.0",
+    "browserify": "^16.2.3",
+    "browserify-css": "^0.15.0",
+    "cookie-parser": "^1.4.4",
+    "envify": "^4.1.0",
+    "sass": "^1.22.9",
+    "scssify": "^3.0.1",
+    "serve-favicon": "^2.5.0",
+    "uglify-js": "^3.6.0",
+    "uglifyify": "^5.0.1"
   }
 }

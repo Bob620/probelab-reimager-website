@@ -1,0 +1,10 @@
+{
+  "redis": {
+    "host": "",
+    "port": "",
+    "auth": "",
+    "db": 0,
+    "family": 4
+  },
+  "fakeRedis": false
+}

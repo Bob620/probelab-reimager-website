@@ -1,66 +1,136 @@
+/**
+ * Bob was here, and he made this
+ */
+
 const fs = require('fs');
-const path = require('path');
-const babelify = require('babelify');
-const cssify = require('browserify-css');
+const envify = require('envify/custom');
+const uglifyjs = require('uglify-js');
+const scssify = require('scssify');
+const sass = require('sass');
 const browserify = require('browserify');
 
-const generalFileRegex = /(\.)(.)+/gi;
 const baseDir = "./src";
 const outputDir = "./public";
-const entryFile = "index.jsx";
 
 /**
  * Builds the src directory
  */
-function build() {
-  let directories = [];
+function build(NODE_ENV = 'development') {
+	process.env.NODE_ENV = NODE_ENV;
 
-  // Searches through the src directory and adds all subfolders to an array
-  const files = fs.readdirSync(baseDir);
-  for (x = 0; x < files.length; x++) {
-    const file = files[x];
-    // finds the subfolders (In this case anything that matches the regex /(\.)(.)+/gi)
-    if (file.match(generalFileRegex) === null) {
-      const dirFiles = fs.readdirSync(`${baseDir}/${file}`);
-      // Looks for the entry file before adding to the directory array
-      if (dirFiles.includes(entryFile)) {
-        directories.push(file);
-      }
-    }
-  }
+	if (!fs.existsSync(outputDir))
+		fs.mkdirSync(outputDir);
+	if (!fs.existsSync(`${outputDir}/js`))
+		fs.mkdirSync(`${outputDir}/js`);
+	if (!fs.existsSync(`${outputDir}/css`))
+		fs.mkdirSync(`${outputDir}/css`);
 
-  // Goes through each subfolder to bundle them
-  // Bundles index.jsx into a js file in public named after the subfolder
-  for (let i = 0; i < directories.length; i++) {
-    const dirName = directories[i];
-    // Nice looking log
-    console.log(`${dirName}/index.jsx -> ${dirName}.js`);
-    bundle(`${baseDir}/${dirName}/index.jsx`, dirName);
-  }
+	let entryFiles = [];
+	for (const file of fs.readdirSync(baseDir, {withFileTypes: true})) {
+		if (file.isFile()) {
+			let name = file.name.split('.');
+			const ext = name.pop();
+			name = name.join('.');
+			switch (ext) {
+				case 'css':
+				case 'scss':
+					entryFiles.push({
+						type: 'css',
+						entry: `${baseDir}/${file.name}`,
+						output: `${outputDir}/css/${name}.css`
+					});
+					break;
+				case 'js':
+				case 'jsx':
+					entryFiles.push({
+						type: 'js',
+						entry: `${baseDir}/${file.name}`,
+						output: `${outputDir}/js/${name}.js`
+					});
+					break;
+			}
+		}
+	}
+
+	if (process.env.NODE_ENV === 'production')
+		console.log('Bundling production files...\n');
+	else
+		console.log('Bundling dev files...\n');
+
+	let bundles = [];
+	for (const {entry, output, type} of entryFiles) {
+		console.log(`${entry} -> ${output}`);
+		bundles.push(type === 'js' ? bundlejs([entry], output) : bundlecss(entry, output));
+	}
+
+	Promise.all(bundles).then(() => {
+		console.log('\nAll files bundled');
+	}).catch(err => {
+		console.log(err);
+	});
+}
+
+function bundlecss(file, outputName) {
+	return new Promise((resolve, reject) => {
+		if (process.env.NODE_ENV === 'production')
+			resolve(fs.writeFileSync(outputName, sass.renderSync({
+				file,
+				outputStyle: 'compressed',
+				outFile: outputName,
+				includePaths: [baseDir]
+			}).css));
+		else
+			resolve(fs.writeFileSync(outputName, sass.renderSync({
+				file,
+				outputStyle: 'expanded',
+				outFile: outputName,
+				includePaths: [baseDir]
+			}).css));
+	});
 }
 
 /**
- * Bundles files togeather into outputName.js
+ * Bundles files together into outputName.js
  * @param {Array} files array of the file urls
  * @param {string} outputName name of the output file (.js added automatically)
  * @example
  * bundle(["./src/index/index.jsx"], "index");
  */
-function bundle(files, outputName) {
-  // Use babelify and browserify-css to compile react and css
-  browserify()
-    // Uses babelify's react and es6 presets
-    .transform(babelify, {presets: ["es2015", "react"]})
-    // Allows bundling of css
-    .transform(cssify)
-    // Adds files, Don't use .require() unless you want it to import it as a module
-    .add(files)
-    .bundle()
-    .on('error', (err) => {
-      console.log(`Error: ${err.message}`);
-    })
-    .pipe(fs.createWriteStream(`${outputDir}/${outputName}.js`));
+function bundlejs(files, outputName) {
+	if (process.env.NODE_ENV === 'production')
+		return new Promise((resolve, reject) => {
+			browserify()
+			.transform(scssify)
+			.transform(envify({NODE_ENV: 'production'}))
+			.transform('uglifyify', {global: true})
+			.add(files)
+			.on('error', (err) => {
+				console.log(err);
+				reject(err);
+			})
+			.bundle()
+			.pipe(fs.createWriteStream(outputName).on('close', () => {
+				const test = uglifyjs.minify(fs.readFileSync(outputName, 'utf8'));
+				fs.writeFile(outputName, test.code, () => {
+					resolve();
+				});
+			}));
+		});
+	return new Promise((resolve, reject) => {
+		browserify()
+		.transform(scssify)
+		.transform(envify())
+		.add(files)
+		.on('error', (err) => {
+			console.log(err);
+			reject(err);
+		})
+		.bundle()
+		.pipe(fs.createWriteStream(outputName).on('close', () => {
+			resolve();
+		}));
+	});
 }
 
 // Run the script
-build();
+build(process.argv[2]);
