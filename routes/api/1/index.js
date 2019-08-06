@@ -5,10 +5,10 @@ const Redis = require('../redis.js');
 const router = express.Router();
 const redis = new Redis();
 
-router.get('/branches/:branch', async (req, res) => {
+router.get('/channels/:channel', async (req, res) => {
 	res.status(200);
 	res.json({
-		versions: (await Promise.all((await redis.getVersions(req.params.branch)).map(version => redis.getVersionInfo(req.params.branch, version))))
+		versions: (await Promise.all((await redis.getVersions(req.params.channel)).map(version => redis.getVersionInfo(req.params.channel, version))))
 		.reduce((all, info) => {
 			all[info.version] = info;
 			return all;
@@ -17,16 +17,16 @@ router.get('/branches/:branch', async (req, res) => {
 	res.end();
 });
 
-router.get('/branches/:branch/latest', async (req, res) => {
+router.get('/channels/:channel/latest', async (req, res) => {
 	res.status(200);
-	res.json(await redis.getVersionInfo(req.params.branch, await redis.getLatestVersion(req.params.branch)));
+	res.json(await redis.getVersionInfo(req.params.channel, await redis.getLatestVersion(req.params.channel)));
 	res.end();
 });
 
-router.get('/branches/:branch/:major', async (req, res) => {
+router.get('/channels/:channel/:major', async (req, res) => {
 	res.status(200);
 	res.json({
-		versions: (await Promise.all((await redis.getVersions(req.params.branch, req.params.major)).map(version => redis.getVersionInfo(req.params.branch, version))))
+		versions: (await Promise.all((await redis.getVersions(req.params.channel, req.params.major)).map(version => redis.getVersionInfo(req.params.channel, version))))
 		.reduce((all, info) => {
 			all[info.version] = info;
 			return all;
@@ -35,16 +35,16 @@ router.get('/branches/:branch/:major', async (req, res) => {
 	res.end();
 });
 
-router.get('/branches/:branch/:major/latest', async (req, res) => {
+router.get('/channels/:channel/:major/latest', async (req, res) => {
 	res.status(200);
-	res.json(await redis.getVersionInfo(req.params.branch, await redis.getLatestVersion(req.params.branch, req.params.major)));
+	res.json(await redis.getVersionInfo(req.params.channel, await redis.getLatestVersion(req.params.channel, req.params.major)));
 	res.end();
 });
 
-router.get('/branches/:branch/:major/:minor', async (req, res) => {
+router.get('/channels/:channel/:major/:minor', async (req, res) => {
 	res.status(200);
 	res.json({
-		versions: (await Promise.all((await redis.getVersions(req.params.branch, req.params.major, req.params.minor)).map(version => redis.getVersionInfo(req.params.branch, version))))
+		versions: (await Promise.all((await redis.getVersions(req.params.channel, req.params.major, req.params.minor)).map(version => redis.getVersionInfo(req.params.channel, version))))
 		.reduce((all, info) => {
 			all[info.version] = info;
 			return all;
@@ -53,9 +53,9 @@ router.get('/branches/:branch/:major/:minor', async (req, res) => {
 	res.end();
 });
 
-router.get('/branches/:branch/:major/:minor/latest', async (req, res) => {
+router.get('/channels/:channel/:major/:minor/latest', async (req, res) => {
 	res.status(200);
-	res.json(await redis.getVersionInfo(req.params.branch, await redis.getLatestVersion(req.params.branch, req.params.major, req.params.minor)));
+	res.json(await redis.getVersionInfo(req.params.channel, await redis.getLatestVersion(req.params.channel, req.params.major, req.params.minor)));
 	res.end();
 });
 

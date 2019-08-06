@@ -1,4 +1,6 @@
 config/config.json
+public/css/
+public/js/
 
 # Logs
 logs

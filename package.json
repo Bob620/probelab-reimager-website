@@ -32,16 +32,13 @@
     "express": "^4.17.1",
     "ioredis": "^4.14.0",
     "pug": "^2.0.4",
-    "random-js": "^1.0.8",
     "redis": "^2.8.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
-    "bakadux": "^1.1.0",
     "browserify": "^16.2.3",
     "browserify-css": "^0.15.0",
     "cookie-parser": "^1.4.4",

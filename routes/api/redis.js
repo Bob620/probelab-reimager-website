@@ -11,17 +11,17 @@ module.exports = class {
 			console.info('\nUsing a faked redis client for testing');
 	}
 
-	async getBranches() {
-		return await this.redis.smembers(constants.redis.branches);
+	async getChannels() {
+		return await this.redis.smembers(constants.redis.channels);
 	}
 
-	async getVersionInfo(branch, version) {
-		const info = await this.redis.hgetall(`${constants.redis.branches}:${branch}:${version}`);
+	async getVersionInfo(channel, version) {
+		const info = await this.redis.hgetall(`${constants.redis.channels}:${channel}:${version}`);
 		return info ? info : {};
 	}
 
-	async getVersions(branch, major, minor) {
-		let finalVersionList = await this.redis.smembers(`${constants.redis.branches}:${branch}`);
+	async getVersions(channel, major, minor) {
+		let finalVersionList = await this.redis.smembers(`${constants.redis.channels}:${channel}`);
 
 		if (major) {
 			finalVersionList = finalVersionList.filter(version => version.startsWith(`${major}.`));
@@ -32,8 +32,8 @@ module.exports = class {
 		return finalVersionList ? finalVersionList : [];
 	}
 
-	async getLatestVersion(branch, major=undefined, minor=undefined) {
-		let finalVersionList = await this.getVersions(branch, major, minor);
+	async getLatestVersion(channel, major=undefined, minor=undefined) {
+		let finalVersionList = await this.getVersions(channel, major, minor);
 
 		return finalVersionList.reduce((best, current) => {
 			current = current.split('.');
@@ -56,5 +56,9 @@ module.exports = class {
 			return best;
 
 		}, [0, 0, 0]).join('.');
+	}
+
+	async getHashInfo(hash) {
+		return await this.redis.hgetall(`${constants.redis.hashes}:${hash}`);
 	}
 };

@@ -1,5 +1,6 @@
 {
   "redis": {
-    "branches": "reimager:branches"
+    "channels": "reimager:channels",
+    "hashes": "reimager:hashes"
   }
 }
