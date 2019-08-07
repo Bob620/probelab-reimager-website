@@ -59,6 +59,18 @@ module.exports = class {
 	}
 
 	async getHashInfo(hash) {
-		return await this.redis.hgetall(`${constants.redis.hashes}:${hash}`);
+		try {
+			return {
+				type: await this.redis.get(`${constants.redis.hashes}:${hash}:type`),
+				channels: await Promise.all((await this.redis.smembers(`${constants.redis.hashes}:${hash}:channels`)).map(async channel => {
+					return {
+						channel,
+						version: await this.redis.get(`${constants.redis.hashes}:${hash}:channels:${channel}`)
+					};
+				}))
+			};
+		} catch(err) {
+			return {type: '', channels: []};
+		}
 	}
 };

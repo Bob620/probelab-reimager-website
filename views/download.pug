@@ -6,7 +6,11 @@ block appHead
 
 block app
     section#header
-        h1 Reimager Download
+        h1 Reimager #{version} Download
     section#main
-        p Coming Soon
+        div
+            a(href=`${downloadUrl}/${prefix}-${channel}-${version}.msi`)
+                button Download Windows MSI Installer
+            a(href=`${downloadUrl}/${prefix}-${channel}-${version}.exe`)
+                button Download Windows NSIS Installer
     section#footer

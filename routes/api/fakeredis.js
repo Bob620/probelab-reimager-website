@@ -82,25 +82,19 @@ const dataset = {
 		available: true
 	},
 	[`${constants.redis.hashes}`]: [
-		'58AA313217D891BB5E25A8CD7EB7CD97338A7A939A57708E0D2A26F8EB0B1266',
-		'E03C0A334C0C792C3B48C4E1B9F033C1AEC8D5E8AE83D38E4EC64695E86F4273',
-		'D0C20E90C037FDEB82338AFAE0999E7D9B7DF1B6D9AE6116A9933E73DDAF2005'
+		'58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266',
+		'e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273',
+		'd0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005'
 	],
-	[`${constants.redis.hashes}:58AA313217D891BB5E25A8CD7EB7CD97338A7A939A57708E0D2A26F8EB0B1266`]: {
-		type: '7z',
-		version: '1.1.2',
-		branch: 'beta'
-	},
-	[`${constants.redis.hashes}:E03C0A334C0C792C3B48C4E1B9F033C1AEC8D5E8AE83D38E4EC64695E86F4273`]: {
-		type: 'msi',
-		version: '1.1.2',
-		branch: 'beta'
-	},
-	[`${constants.redis.hashes}:D0C20E90C037FDEB82338AFAE0999E7D9B7DF1B6D9AE6116A9933E73DDAF2005`]: {
-		type: 'nsis',
-		version: '1.1.2',
-		branch: 'beta'
-	}
+	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:type`]: '7z',
+	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels`]: ['beta'],
+	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels:beta`]: '1.1.2',
+	[`${constants.redis.hashes}:e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273:type`]: 'msi',
+	[`${constants.redis.hashes}:e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273:channels`]: ['beta'],
+	[`${constants.redis.hashes}:e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273:channels:beta`]: '1.1.2',
+	[`${constants.redis.hashes}:d0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005:type`]: 'nsis',
+	[`${constants.redis.hashes}:d0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005:channels`]: ['beta'],
+	[`${constants.redis.hashes}:d0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005:channels:beta`]: '1.1.2',
 };
 
 module.exports = {
@@ -108,6 +102,9 @@ module.exports = {
 		return dataset[location];
 	},
 	hgetall: (location) => {
+		return dataset[location];
+	},
+	get: (location) => {
 		return dataset[location];
 	}
 };
