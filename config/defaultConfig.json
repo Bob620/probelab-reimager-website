@@ -1,12 +1,22 @@
 {
   "redis": {
-    "host": "",
-    "port": "",
-    "auth": "",
-    "db": 0,
-    "family": 4
+    "fakeConnection": false,
+    "options": {
+      "host": "",
+      "port": "",
+      "auth": "",
+      "db": 0,
+      "family": 4
+    }
   },
-  "fakeRedis": false,
-  "downloadUrl": "https://bucketUrl",
-  "downloadPrefix": "programName"
+  "apiUrl": "/api/1",
+  "download": {
+    "url": "https://bucketUrl",
+    "name": "reimager",
+    "defaultChannel": "stable"
+  },
+  "source": {
+    "name": "Github",
+    "url": "https://github.com/Bob620/thermo-reimager-app"
+  }
 }

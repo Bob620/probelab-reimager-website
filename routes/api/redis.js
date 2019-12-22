@@ -1,7 +1,7 @@
 const Redis = require('ioredis');
 
 const constants = require('./constants.json');
-const fakeRedis = require('../../config/config.json').fakeRedis;
+const fakeRedis = require('../../config/config.json').redis.fakeConnection;
 
 module.exports = class {
 	constructor() {
@@ -72,5 +72,26 @@ module.exports = class {
 		} catch(err) {
 			return {type: '', channels: []};
 		}
+	}
+
+	async addDownload(hash) {
+		hash = hash.toLowerCase();
+		try {
+			const info = await this.redis.smembers(`${constants.redis.statistics}:${hash}`);
+			await this.redis.hmset(`${constants.redis.statistics}:${hash}`,
+				'totalDownloads', parseInt(info.totalDownloads) + 1);
+		} catch(err) {
+			const hashInfo = (await this.getHashInfo(hash)).channels[0];
+			const info = await this.getVersionInfo(hashInfo.channel, hashInfo.version);
+			await this.redis.sadd(`${constants.redis.statistics}`, hash);
+			await this.redis.hmset(`${constants.redis.statistics}:${hash}`,
+				'root', info.sha256,
+				'totalDownloads', '1');
+		}
+	}
+
+	async getStatistics(hash) {
+		const info = await this.redis.smembers(`${constants.redis.statistics}:${hash}`);
+		return info ? info : {};
 	}
 };

@@ -1,43 +1,43 @@
 @import 'general/colors.scss';
+@import 'general/general.scss';
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: $background-color;
-  color: white;
-
-  min-height: 100vh;
-  width: 100vw;
-
-  overflow-x: hidden;
-
-  h1 {
-    margin: 0;
+#app {
+  > div {
+    width: max-content;
+    margin: auto;
+    max-width: calc(100% - 3em);
   }
 
-  > #header {
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .intro {
+    padding-top: 6em;
+  }
 
-    h1 {
-      font-size: 4em;
-      text-align: center;
+  .download-button {
+    padding: 4em 0;
+  }
+
+  .infographic {
+    width: 100%;
+
+    > div {
+      margin: 2em 0;
+      display: flex;
+
+      > div {
+        p {
+          margin-bottom: 0.8em;
+        }
+
+        img {
+
+        }
+      }
+
+      @media (min-width: $min-screen-width) {
+        > div {
+          width: 50%;
+        }
+      }
     }
-  }
-
-  > #main {
-    min-height: calc(100vh - 40vh - 3em);
-
-    p {
-      text-align: center;
-      margin: 0;
-    }
-  }
-
-  > #footer {
-    height: 3em;
-    background-color: $accent-color;
   }
 }

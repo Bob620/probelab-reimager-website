@@ -1,6 +1,7 @@
 {
   "redis": {
     "channels": "reimager:channels",
-    "hashes": "reimager:hashes"
+    "hashes": "reimager:hashes",
+    "statistics": "reimager:statistics"
   }
 }

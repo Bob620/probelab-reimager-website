@@ -1,12 +1,63 @@
 extends layout
 
 block appHead
-    script(src='/assets/js/index.js')
-    link(rel='stylesheet', href='/assets/css/index.css')
+  title='Reimager'
+  meta(name='author', content='Noah Kraft')
+  meta(name='description', content='Probelab ReImager is a simple and powerful tool for the re-processing of images captured with various devices such as Microprobes, SEMs, and TEMs.')
+  link(rel='stylesheet', href='/assets/css/index.css')
 
 block app
-    section#header
-        h1 Reimager
-    section#main
-        p Coming Soon
-    section#footer
+  div.intro
+    p Probelab ReImager is a simple to use but powerful tool for the re-processing of images captured with Thermo Scientific's NSS and Pathfinder software.
+  div.download-button
+    div.button
+      a(href='/download')
+        h3 Download
+  div.infographic
+    div
+      div
+        p ReImager currently supports images and analyses taken through Thermo Scientific's NSS and Pathfinder software; However, more formats are planned such as native support with both JEOL and CAMECA Microprobes, SEMs, and TEMs.
+        p Supports Windows 7, 8, and 10 (With unofficial support for XP, and linux (deb, snap, or standalone).
+        p Install on your lab machines or a user's computer, customize for your lab and use it without any extra setup.
+      div
+        img()
+    div
+      div
+        img()
+      div
+        p Easily resize to fit most computer screens and resolutions.
+    div
+      div
+        p Load any project directory created through NSS or Pathfinder in order to view the images.
+        p Supports Samba and other network storage solutions with native UI
+        p Supports any image resolution with full customization of options.
+      div
+        img()
+    div
+      div
+        img()
+      div
+        p Choose any directory and name when saving the images, or batch export them all to the same directory automatically using a custom naming scheme .
+        p Export any image as TIFF, JPEG, PNG, WebP, or ACQ to integrate directly with ProbeSoftware's PictureSnapApp.
+    div
+      div
+        p Easily change settings and save the image to export later, or batch export all the selected images with the same settings regardless of the mix of image resolutions, projects, or settings per image.
+      div
+        img()
+    div
+      div
+        img()
+      div
+        p Change the position and scale sizing of the scale bar, No longer be forced to accept what the program thinks is right.
+        p Easily add a background or move the scale bar off of the image to make it easier to read
+    div
+      div
+        p Full customization of what positions are shown, the visual representation, color, and size.
+        p Export maps from NSS or Pathfinder and layer them on top in a custom color with or without positions and a scale bar.
+      div
+        img()
+    div
+      div
+        img()
+      div
+        p Easily download and install updates with a non-intrusive notification system (Requires internet access)

@@ -15,7 +15,7 @@ body {
     margin: 0;
   }
 
-  > #header {
+  > .top {
     height: 40vh;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ body {
     }
   }
 
-  > #main {
+  > .bot {
     min-height: calc(100vh - 40vh - 3em);
 
     > div {
@@ -43,10 +43,5 @@ body {
       text-align: center;
       margin: 0;
     }
-  }
-
-  > #footer {
-    height: 3em;
-    background-color: $accent-color;
   }
 }

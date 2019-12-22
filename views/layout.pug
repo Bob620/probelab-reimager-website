@@ -1,9 +1,30 @@
 doctype html
 html
   head
-    title='Reimager'
+    link(rel='shortcut icon' href='/assets/images/favicon.ico' type=';image/x-icon')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='/assets/css/base.css')
     block appHead
   body
-    block app
+    section#header
+      div#logo
+        a(href='/')
+          img(src='/assets/images/atom-2.png', alt='')
+          h1 ReImager
+      ul#menu
+        li.button
+          a(href='/download')
+            h3 Download
+        li.button
+          a(href='/manual')
+            h3 Manual
+        li.button
+          a(href='/about')
+            h3 About
+      div#source.button
+        a(href=source.url)
+          h3 #{source.name}
+    section#app
+      block app
+    section#footer

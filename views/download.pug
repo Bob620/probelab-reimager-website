@@ -1,16 +1,17 @@
 extends layout
 
 block appHead
-    //script(src='/assets/js/index.js')
-    link(rel='stylesheet', href='/assets/css/download.css')
+  title='Reimager - Download'
+  meta(name='author', content='Noah Kraft')
+  meta(name='description', content='Probelab ReImager is a simple and powerful tool for the re-processing of images captured with various devices such as Microprobes, SEMs, and TEMs.')
+  link(rel='stylesheet', href='/assets/css/download.css')
 
 block app
-    section#header
-        h1 Reimager #{version} Download
-    section#main
-        div
-            a(href=`${downloadUrl}/${prefix}-${channel}-${version}.msi`)
-                button Download Windows MSI Installer
-            a(href=`${downloadUrl}/${prefix}-${channel}-${version}.exe`)
-                button Download Windows NSIS Installer
-    section#footer
+  section.top
+    h1 Reimager #{version} Download
+  section.bot
+    div
+      a(href=`/download/${hash}/${download.name}-${channel}-${version}.msi`)
+        button Download Windows MSI Installer
+      a(href=`/download/${hash}/${download.name}-${channel}-${version}.exe`)
+        button Download Windows NSIS Installer

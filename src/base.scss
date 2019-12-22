@@ -1,0 +1,108 @@
+@import 'general/colors.scss';
+@import 'general/general.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: white;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.button {
+  background-color: $accent-color;
+  border-radius: 1.2em;
+
+  h3 {
+    padding: 1em 2em;
+    color: white;
+  }
+
+  &:hover {
+    background-color: $hover-color !important;
+  }
+}
+
+
+#header {
+  height: 3.5em;
+  display: flex;
+  background-color: rgba(0,0,0,0.2);
+
+  > * {
+    height: inherit;
+  }
+
+  #logo {
+    a {
+      height: inherit;
+      display: flex;
+
+      img {
+        height: 90%;
+        padding-right: 1em;
+        margin: auto;
+      }
+
+      h1 {
+        margin:auto;
+      }
+    }
+  }
+
+  .button {
+    border-radius: 0;
+    background-color: rgba(0,0,0,0);
+
+    a {
+      h3 {
+        height: 100%;
+        align-items: center;
+        display: flex;
+        padding: 0 1em;
+      }
+    }
+  }
+
+  #menu {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: auto auto auto 12%;
+
+    @media (max-width: $min-screen-width - 1) {
+      margin: auto;
+
+      li {
+        display: none;
+      }
+    }
+  }
+
+  #source {
+
+  }
+}
+
+#app {
+  min-height: calc(100vh - 8.5em);
+  margin-bottom: 2em;
+  overflow-x: hidden;
+}
+
+#footer {
+  height: 3em;
+  background-color: $accent-color;
+}

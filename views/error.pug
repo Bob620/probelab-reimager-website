@@ -1,8 +1,9 @@
-doctype html
-html
-  head
-    title Reimager - #{status || 404}
-    link(rel='stylesheet', href='/assets/css/error.css')
-  body
-    div
+extends layout
+
+block appHead
+  title Reimager - #{status || 404}
+  link(rel='stylesheet', href='/assets/css/error.css')
+
+block app
+  div
     h1 That Link could not be found.
