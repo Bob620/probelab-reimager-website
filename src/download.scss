@@ -120,4 +120,16 @@
       }
     }
   }
+
+  .subtext {
+    margin-top: 2em;
+
+    a {
+      color: $selected-color;
+
+      &:hover {
+        color: $hover-color;
+      }
+    }
+  }
 }
