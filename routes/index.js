@@ -26,20 +26,20 @@ class StandardPages {
 			res.render('manual', defaultRender);
 		});
 
-		this.router.get('/download/', async (req, res) => {
+		this.router.get('/download/', async (req, res, next) => {
 			const channel = constants.download.defaultChannel;
 			let info = await redis.getVersionInfo(channel, await redis.getLatestVersion(channel));
 			if (info) {
 				info.hash = info.sha256;
 				info.channel = channel;
-				info.download = constants.download;
-				info.source = constants.source;
+				info.download = defaultRender.download;
+				info.source = defaultRender.source;
 				res.render('download', info);
 			} else
-				res.render('error');
+				next();
 		});
 
-		this.router.get('/download/:hash/:installer', async (req, res) => {
+		this.router.get('/download/:hash/:installer', async (req, res, next) => {
 			try {
 				const hash = req.params.hash.toLowerCase();
 				const info = await redis.getHashInfo(hash);
@@ -47,32 +47,32 @@ class StandardPages {
 					res.redirect(307, `${constants.download.url}/${req.params.installer}`);
 					await redis.addDownload(hash);
 				} else
-					res.render('error');
+					next();
 			} catch (err) {
-				res.render('error');
+				next();
 			}
 		});
 
-		/*
-		this.router.get('/downloads/:channel/:hash', async (req, res) => {
+		this.router.get('/downloads/:channel/:hash', async (req, res, next) => {
 			const hashInfo = await redis.getHashInfo(req.params.hash.toLowerCase());
 			const channelInfo = hashInfo.channels.filter(({channel}) => {
 				if (channel === req.params.channel)
 					return true;
 			});
+
 			if (channelInfo[0]) {
 				let info = await redis.getVersionInfo(channelInfo[0].channel, channelInfo[0].version);
 				if (info) {
+					info.hash = info.sha256;
 					info.channel = req.params.channel;
-					info.download = constants.download;
-					info.source = constants.source;
+					info.download = defaultRender.download;
+					info.source = defaultRender.source;
 					res.render('download', info);
 				} else
-					res.render('error');
+					next();
 			} else
-				res.render('error');
+				next();
 		});
-		*/
 
 		// error handler
 		this.router.use(function(req, res) {

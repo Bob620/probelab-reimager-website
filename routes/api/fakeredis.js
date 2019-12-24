@@ -88,8 +88,9 @@ const dataset = {
 		'd0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005'
 	],
 	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:type`]: '7z',
-	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels`]: ['stable'],
+	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels`]: ['stable', 'beta'],
 	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels:stable`]: '1.0.0',
+	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels:beta`]: '1.0.1',
 	[`${constants.redis.hashes}:e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273:type`]: 'msi',
 	[`${constants.redis.hashes}:e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273:channels`]: ['stable'],
 	[`${constants.redis.hashes}:e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273:channels:stable`]: '1.0.0`',
