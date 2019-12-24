@@ -21,7 +21,10 @@
 
     > div {
       margin: 2em 0;
-      display: flex;
+
+      @media (min-width: $min-screen-width) {
+        display: flex;
+      }
 
       > .text {
         margin: auto;
