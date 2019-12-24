@@ -11,7 +11,23 @@ block app
     h1 Reimager #{version} Download
   section.bot
     div
-      a(href=`/download/${hash}/${download.name}-${channel}-${version}.msi`)
-        button Download Windows MSI Installer
-      a(href=`/download/${hash}/${download.name}-${channel}-${version}.exe`)
-        button Download Windows NSIS Installer
+      input(type='checkbox', id='more')
+      div
+        div.button
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.msi`)
+            div
+              h4 Download Windows Installer
+        label(for='more') More
+      ul
+        li.button
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.msi`)
+            div
+              h4 Download Windows MSI Installer
+        li.button
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.exe`)
+            div
+              h4 Download Windows NSIS Installer
+        li.button
+          a(href=`mailto:kraft270@umn.edu`)
+            div
+              h4 Contact other installers

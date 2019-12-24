@@ -1,47 +1,123 @@
 @import 'general/colors.scss';
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: $background-color;
-  color: white;
 
-  min-height: 100vh;
-  width: 100vw;
-
-  overflow-x: hidden;
+.top {
+  display: flex;
+  justify-content: center;
+  margin-top: 10em;
+  margin-bottom: 2em;
 
   h1 {
-    margin: 0;
+    font-size: 3em;
+    text-align: center;
   }
+}
 
-  > .top {
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.bot {
+  > div {
+    width: max-content;
+    margin: auto;
 
-    h1 {
-      font-size: 4em;
+    h4 {
       text-align: center;
     }
-  }
-
-  > .bot {
-    min-height: calc(100vh - 40vh - 3em);
 
     > div {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
 
-      a {
-        text-decoration: none;
+      > div {
+        display: flex;
+
+        border-radius: 1.2em 0 0 1.2em;
+
+        > a {
+          > div {
+            flex-grow: 1;
+            text-align: center;
+            padding: 0.8em 1.5em;
+          }
+        }
+      }
+
+      label {
+        border-left-width: 2px;
+        border-left-color: black;
+        border-left-style: solid;
+
+        border-bottom-right-radius: 1.2em;
+        border-top-right-radius: 1.2em;
+
+        flex-grow: 1;
+        text-align: center;
+        min-width: 5em;
+        padding: 0.8em 0;
+        cursor: pointer;
+        background-color: $accent-color;
+
+        &:hover {
+          background-color: $hover-color;
+        }
+
+        &::selection {
+          background: none;
+        }
       }
     }
-    p {
-      text-align: center;
+
+    > input {
+      display: none;
+
+      &:checked ~ div {
+        > div {
+          border-bottom-left-radius: 0;
+        }
+
+        label {
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      &:checked ~ ul {
+        display: block !important;
+      }
+    }
+
+    > ul {
+      display: none;
+      list-style: none;
+      padding: 0;
       margin: 0;
+
+      > li {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        &.button {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 1.2em;
+          border-bottom-right-radius: 1.2em;
+        }
+
+        a {
+          width: 100%;
+          height: 100%;
+
+          div {
+            width: 100%;
+            height: 100%;
+            flex-grow: 1;
+            padding: 0.8em 0;
+
+            h4 {
+              text-align: center;
+            }
+          }
+        }
+      }
     }
   }
 }
