@@ -5,7 +5,7 @@ const fakeRedis = require('../../config/config.json').redis.fakeConnection;
 
 module.exports = class {
 	constructor() {
-		this.redis = fakeRedis ? require('./fakeredis.js') : new Redis(require('../../config/config.json').redis);
+		this.redis = fakeRedis ? require('./fakeredis.js') : new Redis(require('../../config/config.json').redis.options);
 
 		if (fakeRedis)
 			console.info('\nUsing a faked redis client for testing');
