@@ -23,13 +23,25 @@
       margin: 2em 0;
       display: flex;
 
-      > div {
+      > .text {
+        margin: auto;
+
         p {
-          margin-bottom: 0.8em;
+          margin-bottom: 1.5em;
         }
+      }
 
-        img {
+      > .image {
+        justify-content: center;
+        display: flex;
 
+        > div {
+          width: max-content;
+
+          img {
+            max-height: 30em;
+            max-width: 90%;
+          }
         }
       }
 
