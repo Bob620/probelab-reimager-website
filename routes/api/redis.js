@@ -77,7 +77,7 @@ module.exports = class {
 	async addDownload(hash) {
 		hash = hash.toLowerCase();
 		try {
-			const info = await this.redis.smembers(`${constants.redis.statistics}:${hash}`);
+			const info = await this.redis.hgetall(`${constants.redis.statistics}:${hash}`);
 			await this.redis.hmset(`${constants.redis.statistics}:${hash}`,
 				'totalDownloads', parseInt(info.totalDownloads) + 1);
 		} catch(err) {
