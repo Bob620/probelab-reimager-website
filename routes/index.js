@@ -18,6 +18,14 @@ class StandardPages {
 			res.render('index', defaultRender);
 		});
 
+		this.router.get('/about/', (req, res) => {
+			res.render('about', defaultRender);
+		});
+
+		this.router.get('/manual/', (req, res) => {
+			res.render('manual', defaultRender);
+		});
+
 		this.router.get('/download/', async (req, res) => {
 			const channel = constants.download.defaultChannel;
 			let info = await redis.getVersionInfo(channel, await redis.getLatestVersion(channel));
