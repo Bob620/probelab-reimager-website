@@ -4,8 +4,43 @@ block appHead
   title='Reimager - Manual'
   meta(name='author', content='Noah Kraft')
   meta(name='description', content='Probelab ReImager is a simple and powerful tool for the re-processing of images captured with various devices such as Microprobes, SEMs, and TEMs.')
+  include anchor
   link(rel='stylesheet', href='/assets/css/manual.css')
 
 block app
   div
-    p Probelab ReImager Manual coming soon.
+    div
+      h1 Probelab ReImage Manual
+      p More updates soon.
+    div
+      +anchor('h2', 'Setup', 'setup')
+      p.
+        Just ask the lab for their <a href="#pixel-constant">Pixel Constant</a> or find it yourself using the
+        <a href='#lab-setup'>Lab Setup</a>.
+    div
+      +anchor('h2', 'Lab Setup', 'lab-setup')
+      p.
+        If you are a lab manager, or want to set up reimager to run in a new lab, you have to make sure to set the correct
+        <span class="bold">Pixel Constant</span>. The pixel constant determines how the physical machine zooms, the
+        scaling, and several other important features to properly provide accurate and precise values on the images.
+    div
+      +anchor('h3', 'Pixel Constant', 'pixel-constant')
+      p The pixel constant can be found under `help -> settings` or by clicking the bell on the navbar/header.
+      div.split-half
+        div
+          p.
+            It is important to get right and needs to be corrected with every physical modification to the
+            machine so know when your data was taken and when the pixel constant might have changed (and
+            if that change matters sufficiently).
+          p Thankfully it's an easy process:
+          p.
+            The pixel constant is found by taking an image at various magnifications but all at 1024 resolution and dividing
+            the number of microns by resolution.
+          p 4000 mag at 1024 res image -> 29.883 microns across the entire image (left side to right side) -> 29.883/1024 = 0.029183 μm/pixel
+          p.
+            This process, when trended using Excel, will provide a formula like 116.73x^-1 or very close to x^-1. Put the
+            constant (116.73) into the provided settings box and forget about it till next time you calibrate the probe.
+        div
+          p For example this is the exact data used to calibrate for the University of Minnesota Probelab's Microprobe:
+          div
+            img(src='/assets/images/pixel-constant.jpg' alt='Excel trend and data example')
