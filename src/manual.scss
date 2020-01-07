@@ -46,4 +46,45 @@
   > div {
     width: 90%;
   }
+
+  #install-problems-win10 + div {
+    :last-child {
+      flex-direction: row;
+      justify-content: space-around;
+
+      img {
+        width: 45%;
+        padding: 1em;
+      }
+    }
+  }
+
+
+  #install-problems-ff + div {
+    :last-child {
+      flex-direction: row;
+      justify-content: space-around;
+
+      img {
+        padding: 1em;
+      }
+    }
+  }
+
+  #install-problems-edgium + div {
+    > :last-child {
+      width: inherit;
+
+      > :last-child {
+        width: inherit;
+        justify-content: space-around;
+
+        img {
+          width: 45%;
+          padding: 1em;
+        }
+      }
+    }
+  }
+
 }

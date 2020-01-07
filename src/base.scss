@@ -1,6 +1,7 @@
 @import 'general/colors.scss';
 @import 'general/general.scss';
 @import url('https://fonts.googleapis.com/css?family=Oxygen&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oxygen+Mono&display=swap');
 
 body {
   margin: 0;
@@ -21,6 +22,17 @@ body {
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  span.code {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.1em;
+    font-family: 'Oxygen Mono', monospace;
+    padding: 0 0.2em;
+  }
+
+  span.bold {
+    font-weight: bold;
   }
 }
 

@@ -25,7 +25,9 @@ block app
         the scaling, and several other important features to properly provide accurate and precise values on the images.
     div
       +anchor('h3', 'Pixel Constant', 'pixel-constant')
-      p The pixel constant can be found under `help -> settings` or by clicking the bell on the navbar/header.
+      p.
+        The pixel constant can be found under <span class='code'>help -> settings</span> or by clicking the bell on the
+        navbar/header.
       div.split-half
         div
           p.
@@ -46,16 +48,57 @@ block app
         div
           p For example this is the exact data used to calibrate for the University of Minnesota Probelab's Microprobe:
           div
-            img(src='/assets/images/pixel-constant.jpg' alt='Excel trend and data example')
+            img(src='/assets/images/manual/pixel-constant.jpg' alt='Excel trend and data example')
     div
-      +anchor('h2', 'Installing Problems', 'install-problems')
+      +anchor('h2', 'Installation Problems', 'install-problems')
       p.
         Some browsers and Windows 10 SmartScreen currently do not recognize Probelab ReImager due to it being new
         and unsigned code. Because of this, some systems will make sure you want to install the software.
       div
-        +anchor('h3', 'Windows 10 Issues', 'install-problems-win10')
-        p Windows SmartScreen
-        +anchor('h3', 'Mozilla Firefox', 'install-problems-ff')
-        p Mozilla Firefox
-        +anchor('h3', 'Microsoft Edge(Edgium)', 'install-problems-edgium')
-        p Microsoft Edge based off Chromium(Edgium)
+        div
+          +anchor('h3', 'Windows 10 Issues', 'install-problems-win10')
+          div.split-half
+            div
+              p.
+                Windows SmartScreen can look scary, but pops up for a lot of new, unsigned programs. The process to
+                allow a program to run anyway is very easy as shown by the images to the right.
+              p.
+                When the dialog pops up, by clicking on <span class='code'>More info</span> near the top of the window
+                it will provide another button next to <span class='code'>Don't run</span> called
+                <span class='code'>Run anyway</span>.
+              p.
+                This will allow for the installer to run and will not show up on future runs of the program. It's a one
+                time problem.
+            div
+              img(src='/assets/images/manual/win10-protect-1.jpg')
+              img(src='/assets/images/manual/win10-protect-2.jpg')
+        div
+          +anchor('h3', 'Mozilla Firefox', 'install-problems-ff')
+          div.split-half
+            div
+              p.
+                Mozilla Firefox will ask you if you are sure you want to run it, by clicking
+                <span class='code'>OK</span> it will run the installer as normal.
+              p.
+                Please note this is not saying it <span class="bold">does contain</span> but rather that it
+                <span class='bold'>could contain</span> malicious code since it is not a widely used software.
+            div
+              img(src='/assets/images/manual/ff-protect-1.jpg')
+        div
+          +anchor('h3', 'Microsoft Edge(Edgium)', 'install-problems-edgium')
+          div.split-half
+            div
+              p Microsoft Edge based off Chromium(Edgium) runs a branch of Microsoft SmartScreen.
+              p.
+                When downloaded it will ask if you would like to delete or keep it, by clicking on the
+                <span class='code'>. . .</span> and selecting <span class='code'>Keep</span>
+              p.
+                Doing this will bring you to the Downloads page where it will display
+                a similar screen to <a href='#install-problems-win10'>Windows SmartScreen</a>. By clicking
+                <span class='code'>Show more -> Keep anyway</span> it will allow you to run the installer.
+            div
+              div
+                img(src='/assets/images/manual/edgium-protect-1.jpg')
+              div
+                img(src='/assets/images/manual/edgium-protect-2.jpg')
+                img(src='/assets/images/manual/edgium-protect-3.jpg')
