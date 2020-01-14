@@ -21,11 +21,17 @@ block app
         p Install on your lab machines or a user's computer, customize for your lab and use it without any extra setup.
       div.image
         div
-          img(src='/assets/images/reimager/white-background.jpg')
+          picture
+            img(src='/assets/images/reimager/white-background-750w.jpg', alt='ReImager with an image and point displayed',
+              decoding='async', importance='high', loading='lazy')
+            source(srcset='/assets/images/reimager/white-background-500w.webp', media='(max-width: 899px)')
+            source(srcset='/assets/images/reimager/white-background-750w.webp', media='(min-width: 600px) and (max-width: 899px)')
+            source(srcset='/assets/images/reimager/white-background-500w.webp', media='(max-width: 1200px)')
     div
       div.image
         div
-          img(src='/assets/images/reimager/resized.jpg')
+          img(src='/assets/images/reimager/resized.jpg', alt='ReImager but the viewport is larger and scaled',
+            decoding='async', importance='low', loading='lazy')
       div.text
         p Easily resize to fit most computer screens and resolutions.
         p Resize the side-columns if file names are too long
@@ -36,11 +42,13 @@ block app
         p Supports any image resolution with full customization of options.
       div.image
         div
-          img(src='/assets/images/reimager/size-directory-store.jpg')
+          img(src='/assets/images/reimager/size-directory-store.jpg', alt='ReImager with multi-source store',
+            decoding='async', importance='low', loading='lazy')
     div
       div.image
         div
-          img(src='/assets/images/reimager/export-dialog.jpg')
+          img(src='/assets/images/reimager/export-dialog.jpg', alt='ReImager in background, Windows Save As in front',
+            decoding='async', importance='low', loading='lazy')
       div.text
         p Choose any directory and name when saving the images, or batch export them all to the same directory automatically using a custom naming scheme .
         p Export any image as TIFF, JPEG, PNG, WebP, or ACQ to integrate directly with ProbeSoftware's PictureSnapApp.
@@ -50,11 +58,13 @@ block app
         p Multi-select and batch export images with any settings wanted per image or for all of them.
       div.image
         div
-          img(src='/assets/images/reimager/savebox.jpg')
+          img(src='/assets/images/reimager/savebox.jpg', alt='ReImager sidebar with saved images in store',
+            decoding='async', importance='low', loading='lazy')
     div
       div.image
         div
-          img(src='/assets/images/reimager/scales.jpg')
+          img(src='/assets/images/reimager/scales.jpg', alt='Various types of scalebars and styling',
+            decoding='async', importance='low', loading='lazy')
       div.text
         p Change the position and scale sizing of the scale bar, No longer be forced to accept what the program thinks is right.
         p Easily add a background or move the scale bar off of the image to make it easier to read
@@ -64,7 +74,8 @@ block app
         p Export maps from NSS or Pathfinder and layer them on top in a custom color with or without positions and a scale bar.
       div.image
         div
-          img(src='/assets/images/reimager/points.jpg')
+          img(src='/assets/images/reimager/points.jpg', alt='Various types of point displays and colors',
+            decoding='async', importance='low', loading='lazy')
     div
       div.image
         div
