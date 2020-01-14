@@ -30,17 +30,21 @@ block app
         p Install on your lab machines or a user's computer, customize for your lab and use it without any extra setup.
       div.image
         div
-          picture
-            img(src='/assets/images/reimager/white-background-750w.jpg', alt='ReImager with an image and point displayed',
-              decoding='async', importance='high', loading='lazy')
-            source(srcset='/assets/images/reimager/white-background-500w.webp', media='(max-width: 899px)')
-            source(srcset='/assets/images/reimager/white-background-750w.webp', media='(min-width: 600px) and (max-width: 899px)')
-            source(srcset='/assets/images/reimager/white-background-500w.webp', media='(max-width: 1200px)')
+          img(alt='ReImager with an image and point displayed', decoding='async', importance='high', loading='lazy',
+            src='/assets/images/reimager/white-background-750w.jpg'
+            srcset=
+            '/assets/images/reimager/white-background-500w.webp 500w,' +
+            '/assets/images/reimager/white-background-750w.webp 750w',
+            sizes='(max-width: 599px) 500w')
     div
       div.image
         div
-          img(src='/assets/images/reimager/resized.jpg', alt='ReImager but the viewport is larger and scaled',
-            decoding='async', importance='low', loading='lazy')
+          img(alt='ReImager but the viewport is larger and scaled', decoding='async', importance='low', loading='lazy',
+            src='/assets/images/reimager/resized-750w.jpg'
+            srcset=
+            '/assets/images/reimager/resized-500w.webp 500w,' +
+            '/assets/images/reimager/resized-750w.webp 750w',
+            sizes='(max-width: 599px) 500w')
       div.text
         h2 Resizable Window and Elements
         p Easily resize to fit most computer screens and resolutions.
@@ -53,13 +57,21 @@ block app
         p Supports any image resolution with full customization of options.
       div.image
         div
-          img(src='/assets/images/reimager/size-directory-store.jpg', alt='ReImager with multi-source store',
-            decoding='async', importance='low', loading='lazy')
+          img(alt='ReImager with multi-source store', decoding='async', importance='low', loading='lazy',
+            src='/assets/images/reimager/size-directory-store-750w.jpg'
+            srcset=
+            '/assets/images/reimager/size-directory-store-500w.webp 500w,' +
+            '/assets/images/reimager/size-directory-store-750w.webp 750w',
+            sizes='(max-width: 599px) 500w')
     div
       div.image
         div
-          img(src='/assets/images/reimager/export-dialog.jpg', alt='ReImager in background, Windows Save As in front',
-            decoding='async', importance='low', loading='lazy')
+          img(alt='ReImager in background, Windows SaveAs in front', decoding='async', importance='low', loading='lazy',
+            src='/assets/images/reimager/export-dialog-750w.jpg'
+            srcset=
+            '/assets/images/reimager/export-dialog-500w.webp 500w,' +
+            '/assets/images/reimager/export-dialog-750w.webp 750w',
+            sizes='(max-width: 599px) 500w')
       div.text
         h2 Customizable Destination and Names
         p.
@@ -77,13 +89,18 @@ block app
         p Multi-select and batch export images with any settings applied per image or for all of them.
       div.image
         div
-          img(src='/assets/images/reimager/savebox.jpg', alt='ReImager sidebar with saved images in store',
-            decoding='async', importance='low', loading='lazy')
+          img(alt='ReImager sidebar with saved images in store', decoding='async', importance='low', loading='lazy',
+            src='/assets/images/reimager/savebox-200w.jpg'
+            srcset='/assets/images/reimager/savebox-200w.webp 1x')
     div
       div.image
         div
-          img(src='/assets/images/reimager/scales.jpg', alt='Various types of scalebars and styling',
-            decoding='async', importance='low', loading='lazy')
+          img(alt='Various types of scalebars and styling', decoding='async', importance='low', loading='lazy',
+            src='/assets/images/reimager/scales-700w.jpg'
+            srcset=
+            '/assets/images/reimager/scales-400w.webp 400w,' +
+            '/assets/images/reimager/scales-700w.webp 700w',
+            sizes='(max-width: 599px) 400w').fix-image
       div.text
         h2 Customize Almost Anything
         p.
@@ -99,8 +116,12 @@ block app
           scale bar.
       div.image
         div
-          img(src='/assets/images/reimager/points.jpg', alt='Various types of point displays and colors',
-            decoding='async', importance='low', loading='lazy')
+          img(alt='Various types of point displays and colors', decoding='async', importance='low', loading='lazy',
+            src='/assets/images/reimager/points-700w.jpg'
+            srcset=
+            '/assets/images/reimager/points-400w.webp 400w,' +
+            '/assets/images/reimager/points-700w.webp 700w',
+            sizes='(max-width: 599px) 400w').fix-image
     div
       div.image
         div

@@ -50,10 +50,16 @@
 
         > div {
           width: max-content;
+          display: flex;
+          justify-content: center;
 
           img {
             max-height: 30em;
             max-width: 90%;
+          }
+
+          .fix-image {
+            max-width: 700px;
           }
         }
       }
