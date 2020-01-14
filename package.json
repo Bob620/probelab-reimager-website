@@ -28,11 +28,12 @@
   "author": "Bob620",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "ioredis": "^4.14.0",
     "pug": "^2.0.4",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -41,12 +42,10 @@
     "babelify": "^8.0.0",
     "browserify": "^16.2.3",
     "browserify-css": "^0.15.0",
-    "cookie-parser": "^1.4.4",
     "envify": "^4.1.0",
     "sass": "^1.22.9",
     "scssify": "^3.0.1",
-    "serve-favicon": "^2.5.0",
     "uglify-js": "^3.6.0",
-    "uglifyify": "^5.0.1"
+    "uglifyify": "^5.0.2"
   }
 }

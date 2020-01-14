@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+const compression = require('compression');
 
 const StandardPages = require('./routes/index');
 const APIPages = require('./routes/api');
@@ -18,10 +17,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(compression());
 app.use('/assets', express.static(path.join(__dirname, 'public')));
 
 app.use('/api/', apiPages.router);
