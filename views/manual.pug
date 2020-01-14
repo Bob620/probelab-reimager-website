@@ -48,8 +48,9 @@ block app
         div
           p For example this is the exact data used to calibrate for the University of Minnesota Probelab's Microprobe:
           div
-            img(src='/assets/images/manual/pixel-constant.jpg' alt='Excel trend and data example',
-              decoding='async', importance='low', loading='lazy')
+            img(alt='Excel trend and data example', decoding='async', importance='low', loading='lazy',
+              src='/assets/images/manual/pixel-constant-450w.jpg',
+              srcset='/assets/images/manual/pixel-constant-450w.webp 1x')
     div
       +anchor('h2', 'Installation Problems', 'install-problems')
       p.
@@ -71,10 +72,12 @@ block app
                 This will allow for the installer to run and will not show up on future runs of the program. It's a one
                 time problem.
             div
-              img(src='/assets/images/manual/win10-protect-1.jpg', alt='Windows protected your PC UI',
-                decoding='async', importance='low', loading='lazy')
-              img(src='/assets/images/manual/win10-protect-2.jpg', alt='Windows protected your PC UI with "Run anyway"',
-                decoding='async', importance='low', loading='lazy')
+              img(alt='Windows protected your PC UI', decoding='async', importance='low', loading='lazy',
+                src='/assets/images/manual/win10-protect-1-450w.jpg',
+                srcset='/assets/images/manual/win10-protect-1-450w.webp 1x')
+              img(alt='Windows protected UI with "Run anyway"', decoding='async', importance='low', loading='lazy',
+                src='/assets/images/manual/win10-protect-2-450w.jpg',
+                srcset='/assets/images/manual/win10-protect-2-450w.webp 1x')
         div
           +anchor('h3', 'Mozilla Firefox', 'install-problems-ff')
           div.split-half
@@ -86,8 +89,9 @@ block app
                 Please note this is not saying it <span class="bold">does contain</span> but rather that it
                 <span class='bold'>could contain</span> malicious code since it is not a widely used software.
             div
-              img(src='/assets/images/manual/ff-protect-1.jpg', alt='Firefox Open Executable File UI',
-                decoding='async', importance='low', loading='lazy')
+              img(alt='Firefox Open Executable File UI', decoding='async', importance='low', loading='lazy',
+                src='/assets/images/manual/ff-protect-1-500w.jpg',
+                srcset='/assets/images/manual/ff-protect-1-500w.webp 1x')
         div
           +anchor('h3', 'Microsoft Edge(Edgium)', 'install-problems-edgium')
           div.split-half
@@ -102,12 +106,15 @@ block app
                 <span class='code'>Show more -> Keep anyway</span> it will allow you to run the installer.
             div
               div
-                img(src='/assets/images/manual/edgium-protect-1.jpg', alt='Edgium bottom of page display with "Keep"',
-                  decoding='async', importance='low', loading='lazy')
+                img(alt='Edgium bottom of page display with "Keep"', decoding='async', importance='low', loading='lazy',
+                  src='/assets/images/manual/edgium-protect-1-450w.jpg',
+                  srcset='/assets/images/manual/edgium-protect-1-450w.webp 1x')
               div
                 div
-                  img(src='/assets/images/manual/edgium-protect-2.jpg', alt='Edgium with SmartScreen',
-                    decoding='async', importance='low', loading='lazy')
+                  img(alt='Edgium SmartScreen', decoding='async', importance='low', loading='lazy',
+                    src='/assets/images/manual/edgium-protect-2-500w.jpg',
+                    srcset='/assets/images/manual/edgium-protect-2-500w.webp 1x')
                 div
-                  img(src='/assets/images/manual/edgium-protect-3.jpg', alt='Edgium with SmartScreen after "Show more"',
-                    decoding='async', importance='low', loading='lazy')
+                  img(alt='Edgium SmartScreen after "Show more"', decoding='async', importance='low', loading='lazy',
+                    src='/assets/images/manual/edgium-protect-3-500w.jpg',
+                    srcset='/assets/images/manual/edgium-protect-3-500w.webp 1x')
