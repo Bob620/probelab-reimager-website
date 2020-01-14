@@ -8,7 +8,10 @@ block appHead
 
 block app
   div.intro
-    p Probelab ReImager is a simple to use but powerful tool for the re-processing of images captured with Thermo Scientific's NSS and Pathfinder software.
+    h1 Probelab ReImager
+    p.
+      Probelab ReImager is a simple to use but powerful tool for the re-processing of images captured via Point and
+      Shoot, PointID, and Spectral Mapping with Thermo Scientific's NSS and Pathfinder software.
   div.download-button
     div.button
       a(href='/download')
@@ -16,8 +19,14 @@ block app
   div.infographic
     div
       div.text
-        p ReImager currently supports images and analyses taken through Thermo Scientific's NSS and Pathfinder software; However, more formats are planned such as native support with both JEOL and CAMECA Microprobes, SEMs, and TEMs.
-        p Supports Windows 7, 8, and 10 (With unofficial support for XP, and linux (deb, snap, or standalone if requested).
+        h2 Wide Official OS Support
+        p.
+          ReImager currently supports images and analyses taken through Thermo Scientific's NSS and Pathfinder software;
+          However, more formats are planned such as native support with both JEOL and CAMECA Electron Microprobes, SEMs,
+           and TEMs.
+        p.
+          Supports Windows 7, 8, and 10 (With unofficial support for XP, and linux (deb, snap, or standalone if
+          requested).
         p Install on your lab machines or a user's computer, customize for your lab and use it without any extra setup.
       div.image
         div
@@ -33,10 +42,12 @@ block app
           img(src='/assets/images/reimager/resized.jpg', alt='ReImager but the viewport is larger and scaled',
             decoding='async', importance='low', loading='lazy')
       div.text
+        h2 Resizable Window and Elements
         p Easily resize to fit most computer screens and resolutions.
         p Resize the side-columns if file names are too long
     div
       div.text
+        h2 Load Projects from Anywhere
         p Load any project directory created through NSS or Pathfinder in order to view the images.
         p Supports Samba and other network storage solutions with native UI
         p Supports any image resolution with full customization of options.
@@ -50,12 +61,20 @@ block app
           img(src='/assets/images/reimager/export-dialog.jpg', alt='ReImager in background, Windows Save As in front',
             decoding='async', importance='low', loading='lazy')
       div.text
-        p Choose any directory and name when saving the images, or batch export them all to the same directory automatically using a custom naming scheme .
-        p Export any image as TIFF, JPEG, PNG, WebP, or ACQ to integrate directly with ProbeSoftware's PictureSnapApp.
+        h2 Customizable Destination and Names
+        p.
+          Choose any directory and name when saving the images, or batch export them all to the same directory
+          automatically using a custom naming scheme .
+        p.
+          Export any image as TIFF, JPEG, PNG, WebP, or generate an ACQ to integrate directly with ProbeSoftware's
+          PictureSnapApp.
     div
       div.text
-        p Easily change settings and save the image to export later, or batch export all the selected images with the same settings regardless of the mix of image resolutions, projects, or settings per image.
-        p Multi-select and batch export images with any settings wanted per image or for all of them.
+        h2 Batch Process and Export
+        p.
+          Easily change settings and save the image to export later. Batch export all the selected images with the same
+          settings regardless of the mix of image resolutions, projects, or settings per image.
+        p Multi-select and batch export images with any settings applied per image or for all of them.
       div.image
         div
           img(src='/assets/images/reimager/savebox.jpg', alt='ReImager sidebar with saved images in store',
@@ -66,12 +85,18 @@ block app
           img(src='/assets/images/reimager/scales.jpg', alt='Various types of scalebars and styling',
             decoding='async', importance='low', loading='lazy')
       div.text
-        p Change the position and scale sizing of the scale bar, No longer be forced to accept what the program thinks is right.
+        h2 Customize Almost Anything
+        p.
+          Change the position and scale sizing of the scale bar. No longer be forced to accept what the program thinks
+          is right.
         p Easily add a background or move the scale bar off of the image to make it easier to read
     div
       div.text
+        h2 Point and Map Customization
         p Full customization of what positions are shown, the visual representation, color, and size.
-        p Export maps from NSS or Pathfinder and layer them on top in a custom color with or without positions and a scale bar.
+        p.
+          Export maps from NSS or Pathfinder and layer them on top in a custom color with or without positions and a
+          scale bar.
       div.image
         div
           img(src='/assets/images/reimager/points.jpg', alt='Various types of point displays and colors',
@@ -81,4 +106,5 @@ block app
         div
           img()
       div.text
+        h2 Optional Updates or Forced No-Updates
         p Easily download and install updates with a non-intrusive notification system (Requires internet access)

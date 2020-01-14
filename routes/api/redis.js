@@ -5,7 +5,7 @@ const fakeRedis = require('../../config/config.json').redis.fakeConnection;
 
 module.exports = class {
 	constructor() {
-		this.redis = fakeRedis ? require('./fakeredis.js') : new Redis(require('../../config/config.json').redis);
+		this.redis = fakeRedis ? require('./fakeredis.js') : new Redis(require('../../config/config.json').redis.options);
 
 		if (fakeRedis)
 			console.info('\nUsing a faked redis client for testing');
@@ -76,11 +76,11 @@ module.exports = class {
 
 	async addDownload(hash) {
 		hash = hash.toLowerCase();
-		try {
-			const info = await this.redis.smembers(`${constants.redis.statistics}:${hash}`);
+		const info = await this.redis.hgetall(`${constants.redis.statistics}:${hash}`);
+		if (info && info.totalDownloads)
 			await this.redis.hmset(`${constants.redis.statistics}:${hash}`,
 				'totalDownloads', parseInt(info.totalDownloads) + 1);
-		} catch(err) {
+		else {
 			const hashInfo = (await this.getHashInfo(hash)).channels[0];
 			const info = await this.getVersionInfo(hashInfo.channel, hashInfo.version);
 			await this.redis.sadd(`${constants.redis.statistics}`, hash);

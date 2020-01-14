@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang='en-US')
   head
     link(rel='shortcut icon' href='/assets/images/favicon.ico' type=';image/x-icon')
     meta(charset='utf-8')
@@ -16,6 +16,9 @@ html
           h1 ReImager
       ul#menu
         li.button
+          a(href='/')
+            h3 Home
+        li.button
           a(href='/download')
             h3 Download
         li.button
@@ -26,7 +29,7 @@ html
             h3 About
         li.button
           a(href='http://probelab.net')
-            h3 Probelab
+            h3 UMN Probelab
       div#source.button
         a(href=source.url)
           h3 #{source.name}
