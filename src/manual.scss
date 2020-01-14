@@ -29,22 +29,46 @@
 
   .split-half {
     display: flex;
+    flex-direction: column;
+
     > div {
-      width: 50%;
       display: flex;
       flex-direction: column;
+
+      width: 100%;
       margin: auto;
 
       > div {
-        width: 50%;
+        width: 100%;
         display: flex;
         margin: auto;
+      }
+    }
+
+
+    @media (min-width: $medium-screen-width) {
+      flex-direction: row;
+
+      > div {
+        width: 50%;
+
+        > div {
+          width: 50%;
+        }
       }
     }
   }
 
   > div {
     width: 90%;
+  }
+
+  #pixel-constant + div {
+    img {
+      @media (min-width: 1400px) {
+          min-width: 450px;
+      }
+    }
   }
 
   #install-problems-win10 + div {
@@ -59,7 +83,6 @@
     }
   }
 
-
   #install-problems-ff + div {
     :last-child {
       flex-direction: row;
@@ -73,14 +96,15 @@
 
   #install-problems-edgium + div {
     > :last-child {
-      width: inherit;
+      width: initial;
 
       > :last-child {
-        width: inherit;
+        width: 100%;
         justify-content: space-around;
 
         img {
           padding: 1em;
+          width: 90%;
         }
 
         > div {
