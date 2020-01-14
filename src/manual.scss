@@ -42,9 +42,12 @@
         width: 100%;
         display: flex;
         margin: auto;
+
+        > div {
+          margin: auto;
+        }
       }
     }
-
 
     @media (min-width: $medium-screen-width) {
       flex-direction: row;
@@ -65,8 +68,8 @@
 
   #pixel-constant + div {
     img {
-      @media (min-width: 1400px) {
-          min-width: 450px;
+      @media (min-width: $medium-screen-width) {
+        min-width: 450px;
       }
     }
   }
@@ -79,6 +82,7 @@
       img {
         width: 45%;
         padding: 1em;
+        max-width: 450px;
       }
     }
   }
@@ -106,12 +110,7 @@
           padding: 1em;
           width: 90%;
         }
-
-        > div {
-          margin: auto;
-        }
       }
     }
   }
-
 }
