@@ -42,7 +42,7 @@ for (let i = 0; i < process.argv.length; i++) {
  * Module dependencies.
  */
 
-const app = require('../app');
+const app = require('../app.js');
 const http = require('http');
 
 /**
