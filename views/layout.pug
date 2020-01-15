@@ -14,6 +14,7 @@ html(lang='en-US')
             src='/assets/images/atom-2-100w.png',
             srcset= '/assets/images/atom-2-100w.webp 1x')
           h1 ReImager
+      input(type='checkbox', id='menu-check')
       ul#menu
         li.button
           a(href='/')
@@ -30,9 +31,16 @@ html(lang='en-US')
         li.button
           a(href='http://probelab.net')
             h3 UMN Probelab
-      div#source.button
-        a(href=source.url)
-          h3 #{source.name}
+        li#source
+          div.button
+            a(href=source.url)
+              h3 #{source.name}
+      div#menu-button
+        label(for='menu-check')
+          div.burger
+            div
+            div
+            div
     section#app
       block app
     section#footer

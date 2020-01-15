@@ -49,7 +49,7 @@
         display: flex;
 
         > div {
-          width: max-content;
+          width: 100%;
           display: flex;
           justify-content: center;
 
@@ -60,6 +60,7 @@
 
           .fix-image {
             max-width: 700px;
+            width: 95%;
           }
         }
       }
