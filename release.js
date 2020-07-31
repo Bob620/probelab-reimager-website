@@ -3,7 +3,7 @@
 const readline = require('readline');
 
 const Redis = require('ioredis');
-const redis = new Redis(require('./config/config.json').redis);
+const redis = new Redis(require('./config/config.json').redis.options);
 
 const constants = require('./routes/api/constants.json');
 
