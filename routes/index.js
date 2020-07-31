@@ -8,6 +8,24 @@ const defaultRender = {
 	source: constants.source
 };
 
+function renderDownloadPage(req, res, redis, info) {
+	info.hash = info.sha256;
+	info.download = defaultRender.download;
+	info.source = defaultRender.source;
+	info.recommendInstaller = req.headers['user-agent'].includes('Windows') ? 'msi' :
+		(req.headers['user-agent'].includes('Mac') ? 'dmg' :
+			(req.headers['user-agent'].includes('Linux') ? 'snap' : 'msi'
+			));
+	info.has = {
+		msi: info.msiSHA256 && info.msiSHA256 !== '',
+		nsis: info.nsisSHA256 && info.nsisSHA256 !== '',
+		dmg: info.dmgSHA256 && info.dmgSHA256 !== '',
+		snap: info.snapSHA256 && info.snapSHA256 !== '',
+		targz: info.targzSHA256 && info.targzSHA256 !== ''
+	};
+	res.render('download', info);
+}
+
 class StandardPages {
 	constructor() {
 		const redis = new Redis();
@@ -30,11 +48,8 @@ class StandardPages {
 			const channel = constants.download.defaultChannel;
 			let info = await redis.getVersionInfo(channel, await redis.getLatestVersion(channel));
 			if (info) {
-				info.hash = info.sha256;
 				info.channel = channel;
-				info.download = defaultRender.download;
-				info.source = defaultRender.source;
-				res.render('download', info);
+				renderDownloadPage(req, res, redis, info);
 			} else
 				next();
 		});
@@ -48,7 +63,7 @@ class StandardPages {
 					await redis.addDownload(hash);
 				} else
 					next();
-			} catch (err) {
+			} catch(err) {
 				next();
 			}
 		});
@@ -63,11 +78,8 @@ class StandardPages {
 			if (channelInfo[0]) {
 				let info = await redis.getVersionInfo(channelInfo[0].channel, channelInfo[0].version);
 				if (info) {
-					info.hash = info.sha256;
 					info.channel = req.params.channel;
-					info.download = defaultRender.download;
-					info.source = defaultRender.source;
-					res.render('download', info);
+					renderDownloadPage(req, res, redis, info);
 				} else
 					next();
 			} else
@@ -75,7 +87,7 @@ class StandardPages {
 		});
 
 		// error handler
-		this.router.use(function(req, res) {
+		this.router.use(function (req, res) {
 			// render the error page
 			res.status(500);
 			const render = JSON.parse(JSON.stringify(defaultRender));

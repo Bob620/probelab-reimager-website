@@ -10,7 +10,7 @@
 
   h1 {
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     font-size: 4em;
   }
 
@@ -20,6 +20,17 @@
 
   .intro {
     padding-top: 6em;
+  }
+
+  .video {
+    margin-top: 2em;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+
+    video {
+      height: 40vh;
+    }
   }
 
   .download-button {

@@ -14,19 +14,31 @@ block app
       input(type='checkbox', id='more')
       div
         div.button
-          a(href=`/download/${hash}/${download.name}-${channel}-${version}.msi`)
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.${recommendInstaller}`)
             div
-              h4 Download Windows Installer
+              h4 Download #{recommendInstaller === 'msi' ? 'Windows Installer' : (recommendInstaller === 'dmg' ? 'MacOS DMG' : (recommendInstaller === 'snap' ? 'Snap Package' : ''))}
         label(for='more') More
       ul
-        li.button
+        li.button(class=has.msi ? 'available' : '')
           a(href=`/download/${hash}/${download.name}-${channel}-${version}.msi`)
             div
               h4 Download Windows MSI Installer
-        li.button
+        li.button(class=has.nsis ? 'available' : '')
           a(href=`/download/${hash}/${download.name}-${channel}-${version}.exe`)
             div
               h4 Download Windows NSIS Installer
+        li.button(class=has.dmg ? 'available' : '')
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.dmg`)
+            div
+              h4 Download MacOS DMG Package
+        li.button(class=has.snap ? 'available' : '')
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.snap`)
+            div
+              h4 Download Snap Package
+        li.button(class=has.targz ? 'available' : '')
+          a(href=`/download/${hash}/${download.name}-${channel}-${version}.tar.gz`)
+            div
+              h4 Download tar.gz Package
         li.button
           a(href=`mailto:kraft270@umn.edu`)
             div

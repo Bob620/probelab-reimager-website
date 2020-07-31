@@ -80,12 +80,18 @@ const dataset = {
 		sha256: '58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266',
 		msiSHA256: 'e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273',
 		nsisSHA256: 'd0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005',
+		dmgSHA256: 'eec20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022',
+		snapSHA256: 'qqc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022',
+		targzSHA256: 'zzc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022',
 		available: true
 	},
 	[constants.redis.hashes]: [
 		'58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266',
 		'e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273',
-		'd0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005'
+		'd0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005',
+		'eec20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022',
+		'qqc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022',
+		'zzc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022'
 	],
 	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:type`]: '7z',
 	[`${constants.redis.hashes}:58aa313217d891bb5e25a8cd7eb7cd97338a7a939a57708e0d2a26f8eb0b1266:channels`]: ['stable', 'beta'],
@@ -97,6 +103,15 @@ const dataset = {
 	[`${constants.redis.hashes}:d0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005:type`]: 'nsis',
 	[`${constants.redis.hashes}:d0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005:channels`]: ['stable'],
 	[`${constants.redis.hashes}:d0c20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2005:channels:stable`]: '1.0.0',
+	[`${constants.redis.hashes}:eec20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:type`]: 'dmg',
+	[`${constants.redis.hashes}:eec20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:channels`]: ['stable'],
+	[`${constants.redis.hashes}:eec20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:channels:stable`]: '1.0.0',
+	[`${constants.redis.hashes}:qqc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:type`]: 'snap',
+	[`${constants.redis.hashes}:qqc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:channels`]: ['stable'],
+	[`${constants.redis.hashes}:qqc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:channels:stable`]: '1.0.0',
+	[`${constants.redis.hashes}:zzc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:type`]: 'targz',
+	[`${constants.redis.hashes}:zzc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:channels`]: ['stable'],
+	[`${constants.redis.hashes}:zzc20e90c037fdeb82338afae0999e7d9b7df1b6d9ae6116a9933e73ddaf2022:channels:stable`]: '1.0.0',
 	[constants.redis.statistics]: [
 		'e03c0a334c0c792c3b48c4e1b9f033c1aec8d5e8ae83d38e4ec64695e86f4273'
 	],

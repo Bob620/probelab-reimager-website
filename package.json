@@ -1,6 +1,6 @@
 {
   "name": "thermo-reimager-website",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "ioredis": "^4.14.0",
+    "ioredis": "^4.17.3",
     "pug": "^2.0.4",
     "redis": "^2.8.0",
     "serve-favicon": "^2.5.0"
@@ -40,12 +40,12 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",
-    "browserify": "^16.2.3",
+    "browserify": "^16.5.1",
     "browserify-css": "^0.15.0",
     "envify": "^4.1.0",
-    "sass": "^1.22.9",
+    "sass": "^1.26.10",
     "scssify": "^3.0.1",
-    "uglify-js": "^3.6.0",
+    "uglify-js": "^3.10.0",
     "uglifyify": "^5.0.2"
   }
 }
