@@ -1,0 +1,130 @@
+extends layout
+
+block appHead
+	title='Reimager - Documentation'
+	meta(name='author', content='Noah Kraft')
+	meta(name='description', content='Probelab ReImager is a simple and powerful tool for the re-processing of images captured with various devices such as Microprobes, SEMs, and TEMs.')
+	include anchor
+	link(rel='stylesheet', href='/assets/css/documentation.css')
+
+block app
+	div
+		div
+			h1 Probelab ReImage Documentation
+			p More updates soon.
+		div
+			+anchor('h2', 'General Documentation', 'general')
+			p.
+				We have several PDFs available to view the features of Probelab ReImager and compare it to the competition.
+			p.
+			a(href='download/849-Noah_Kraft_Poster.pdf') M&M 2020 Poster PDF (Viewable and Downloadable)
+			p.
+			a(href='download/Kraft&vonderHandt_M&M2020_Probelab_reimager_open_source_software_for_streamlining_image_processing.pdf') M&M 2020 Poster Abstract Manuscript (Viewable and Downloadable)
+		div
+			+anchor('h2', 'Setup', 'setup')
+			p.
+				Just ask the lab for their <a href="#pixel-constant">Pixel Constant</a> or find it yourself using the
+				<a href='#lab-setup'>Lab Setup</a>.
+		div
+			+anchor('h2', 'Lab Setup', 'lab-setup')
+			p.
+				If you are a lab manager, or want to set up reimager to run in a new lab, you have to make sure to set the
+				correct <span class="bold">Pixel Constant</span>. The pixel constant determines how the physical machine zooms,
+				the scaling, and several other important features to properly provide accurate and precise values on the images.
+		div
+			+anchor('h3', 'Pixel Constant', 'pixel-constant')
+			div.split-half
+				div
+					p.
+						The pixel constant can be found under <span class='code'>help -> settings</span> or by clicking the bell on the
+						navbar/header.
+					p.
+						It is important to get right and needs to be corrected with every physical modification to the
+						machine so know when your data was taken and when the pixel constant might have changed (and
+						if that change matters sufficiently).
+					p Thankfully it's an easy process:
+					p.
+						The pixel constant is found by taking an image at various magnifications but all at 1024 resolution and
+						dividing the number of microns by resolution.
+					p.
+						4000 mag at 1024 res image -> 29.883 microns across the entire image (left side to right side) ->
+						29.883/1024 = 0.029183 μm/pixel
+					p.
+						This process, when trended using Excel, will provide a formula like 116.73x^-1 or very close to x^-1. Put
+						the constant (116.73) into the provided settings box and forget about it till next time you calibrate the
+						probe.
+				div
+					p For example this is the exact data used to calibrate for the University of Minnesota Probelab's Microprobe:
+					div
+						div
+							img(alt='Excel trend and data example', decoding='async', importance='low', loading='lazy',
+								src='/assets/images/manual/pixel-constant-450w.jpg',
+								srcset='/assets/images/manual/pixel-constant-450w.webp 1x')
+		div
+			+anchor('h2', 'Installation Problems', 'install-problems')
+			p.
+				Some browsers and Windows 10 SmartScreen currently do not recognize Probelab ReImager due to it being new
+				and unsigned code. Because of this, some systems will make sure you want to install the software.
+			div
+				div
+					+anchor('h3', 'Windows 10 Issues', 'install-problems-win10')
+					div.split-half
+						div
+							p.
+								Windows SmartScreen can look scary, but pops up for a lot of new, unsigned programs. The process to
+								allow a program to run anyway is very easy as shown by the images to the right.
+							p.
+								When the dialog pops up, by clicking on <span class='code'>More info</span> near the top of the window
+								it will provide another button next to <span class='code'>Don't run</span> called
+								<span class='code'>Run anyway</span>.
+							p.
+								This will allow for the installer to run and will not show up on future runs of the program. It's a one
+								time problem.
+						div
+							img(alt='Windows protected your PC UI', decoding='async', importance='low', loading='lazy',
+								src='/assets/images/manual/win10-protect-1-450w.jpg',
+								srcset='/assets/images/manual/win10-protect-1-450w.webp 1x')
+							img(alt='Windows protected UI with "Run anyway"', decoding='async', importance='low', loading='lazy',
+								src='/assets/images/manual/win10-protect-2-450w.jpg',
+								srcset='/assets/images/manual/win10-protect-2-450w.webp 1x')
+				div
+					+anchor('h3', 'Mozilla Firefox', 'install-problems-ff')
+					div.split-half
+						div
+							p.
+								Mozilla Firefox will ask you if you are sure you want to run it, by clicking
+								<span class='code'>OK</span> it will run the installer as normal.
+							p.
+								Please note this is not saying it <span class="bold">does contain</span> but rather that it
+								<span class='bold'>could contain</span> malicious code since it is not a widely used software.
+						div
+							img(alt='Firefox Open Executable File UI', decoding='async', importance='low', loading='lazy',
+								src='/assets/images/manual/ff-protect-1-500w.jpg',
+								srcset='/assets/images/manual/ff-protect-1-500w.webp 1x')
+				div
+					+anchor('h3', 'Microsoft Edge(Edgium)', 'install-problems-edgium')
+					div.split-half
+						div
+							p Microsoft Edge based off Chromium(Edgium) runs a branch of Microsoft SmartScreen.
+							p.
+								When downloaded it will ask if you would like to delete or keep it, by clicking on the
+								<span class='code'>. . .</span> and selecting <span class='code'>Keep</span>
+							p.
+								Doing this will bring you to the Downloads page where it will display
+								a similar screen to <a href='#install-problems-win10'>Windows SmartScreen</a>. By clicking
+								<span class='code'>Show more -> Keep anyway</span> it will allow you to run the installer.
+						div
+							div
+								div
+									img(alt='Edgium bottom of page display with "Keep"', decoding='async', importance='low', loading='lazy',
+										src='/assets/images/manual/edgium-protect-1-450w.jpg',
+										srcset='/assets/images/manual/edgium-protect-1-450w.webp 1x')
+							div
+								div
+									img(alt='Edgium SmartScreen', decoding='async', importance='low', loading='lazy',
+										src='/assets/images/manual/edgium-protect-2-500w.jpg',
+										srcset='/assets/images/manual/edgium-protect-2-500w.webp 1x')
+								div
+									img(alt='Edgium SmartScreen after "Show more"', decoding='async', importance='low', loading='lazy',
+										src='/assets/images/manual/edgium-protect-3-500w.jpg',
+										srcset='/assets/images/manual/edgium-protect-3-500w.webp 1x')

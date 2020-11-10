@@ -40,8 +40,8 @@ class StandardPages {
 			res.render('about', defaultRender);
 		});
 
-		this.router.get('/manual/', (req, res) => {
-			res.render('manual', defaultRender);
+		this.router.get('/documentation/', (req, res) => {
+			res.render('documentation', defaultRender);
 		});
 
 		this.router.get('/download/', async (req, res, next) => {
@@ -52,6 +52,14 @@ class StandardPages {
 				renderDownloadPage(req, res, redis, info);
 			} else
 				next();
+		});
+
+		this.router.get('/documentation/download/:file', async (req, res, next) => {
+			try {
+				res.redirect(307, `${constants.download.url}/${req.params.file}`);
+			} catch(err) {
+				next();
+			}
 		});
 
 		this.router.get('/download/:hash/:installer', async (req, res, next) => {
